@@ -13,7 +13,7 @@ def alumnos(request):
         for line in nombres.split('\n'):
             a = Alumno(nombre=line)
             a.save()
-    lista_alumnos = Alumno.objects.all()
+    lista_alumnos = Alumno.objects.all().order_by('-id')
     context = {'lista_alumnos': lista_alumnos}
     return render(request,'curso/alumnos.html', context)
 
