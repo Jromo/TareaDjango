@@ -24,9 +24,9 @@
                     <td class="table-danger">{{a.nombre}}</td>
                     {% for c in lista_clases %}
                         {%if c.id in lista_asistencias|get_key:a.id%}
-                            <td><input type="checkbox" name="{{a.id}}" value="{{c.numero}}" checked/>&nbsp;</td>
+                            <td><input type="checkbox" name="{{a.id}}" value="{{c.id}}" checked/>&nbsp;</td>
                         {% else %}
-                            <td><input type="checkbox" name="{{a.id}}" value="{{c.numero}}"/>&nbsp;</td>
+                            <td><input type="checkbox" name="{{a.id}}" value="{{c.id}}"/>&nbsp;</td>
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
