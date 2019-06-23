@@ -1,14 +1,37 @@
-<h1>Ingresar nuevos Alumnos:</h1>
-<form action="{% url 'curso:alumnos' %}" method="post">
-    {% csrf_token %}
-    ​<textarea id="nombres" name="nombres"></textarea>
-    <input type="submit" value="Ingresar">
-</form>
-<h1>Lista de Alumnos</h1>
-    <ul>
-        {% for a in lista_alumnos %}
-        <li>
-            {{a.nombre}}
-        </li>
-        {% endfor %}
-    </ul>
+{% load static %}
+<html>
+    <head>
+        <title>Tarea CMM</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'curso/style.css' %}">
+    </head>
+<body>
+    <a href="{% url 'curso:index' %}">Volver al Home</a>
+    <div class="col-xl-8">
+        <div class="row">
+            <div class="col-xl-8">
+                <h3 class="text-danger">Ingresar Nuevos Alumnos:</h3>
+                <div class="ingreso-alumnos">
+                    <form action="{% url 'curso:alumnos' %}" method="post">
+                        {% csrf_token %}
+                            <textarea id="nombres" name="nombres" rows="10" placeholder="Ingrese los nombres de los alumnos separados por saltos de línea" ></textarea>
+                            <ul></ul>
+                            <button type="submit" class="btn btn-danger"></i>Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-8">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">Alumnos Registrados</li>
+                        {% for a in lista_alumnos %}
+                        <li class="list-group-item">
+                            {{a.nombre}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+        </div>
+    </div>
+</body>
