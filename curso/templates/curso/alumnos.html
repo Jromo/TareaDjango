@@ -1,0 +1,14 @@
+<h1>Ingresar nuevos Alumnos:</h1>
+<form action="{% url 'curso:alumnos' %}" method="post">
+    {% csrf_token %}
+    ​<textarea id="nombres" name="nombres"></textarea>
+    <input type="submit" value="Ingresar">
+</form>
+<h1>Lista de Alumnos</h1>
+    <ul>
+        {% for a in lista_alumnos %}
+        <li>
+            {{a.nombre}}
+        </li>
+        {% endfor %}
+    </ul>

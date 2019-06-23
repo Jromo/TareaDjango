@@ -1,0 +1,27 @@
+{% load curso_extras %}
+
+<h1>Tabla Asistencia:</h1>
+<form action="{% url 'curso:asistencia' %}" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>Clase:</th>
+            {% for c in lista_clases %}
+            <th>{{c.numero}}</th>
+            {% endfor %}
+        </tr>
+        {% for a in lista_alumnos %}
+        <tr>
+            <td>{{a.nombre}}</td>
+            {% for c in lista_clases %}
+                {%if c.id in lista_asistencias|get_key:a.id%}
+                    <td><input type="checkbox" name="{{a.id}}" value="{{c.numero}}" checked/>&nbsp;</td>
+                {% else %}
+                    <td><input type="checkbox" name="{{a.id}}" value="{{c.numero}}"/>&nbsp;</td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+    <input type="hidden" name="actualizo" value="1" />
+    <input type="submit" value="Actualizar Asistencia">
+</form>
