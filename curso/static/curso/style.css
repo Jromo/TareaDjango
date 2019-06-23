@@ -28,8 +28,6 @@
 	border-radius: 4px 4px 0 0;
 	color: #777777;
 	float: left;
-	font-family: Lato;
-	font-size: 14px;
 	height: 142px;
 	letter-spacing: 0.3px;
 	padding: 20px;
@@ -83,8 +81,6 @@
 	border-radius: 4px;
 	color: #fff;
 	float: right;
-	font-family: Lato;
-	font-size: 14px;
 	letter-spacing: 0.3px;
 	margin-right: 9px;
 	margin-top: 9px;
@@ -94,9 +90,6 @@
 .table td,th {
    text-align: center;   
 }
-
-
-
 
 
 

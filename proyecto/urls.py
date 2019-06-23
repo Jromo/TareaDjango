@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.http import HttpResponse
+
+def sample_view(request):
+    return HttpResponse("Ingresa a /curso o /admin")
 
 urlpatterns = [
+    path('', sample_view),
     path('curso/', include('curso.urls')),
     path('admin/', admin.site.urls),
 ]
